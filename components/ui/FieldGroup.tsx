@@ -12,11 +12,11 @@ interface FieldGroupProps {
 export function FieldGroup({ label, sub, tooltip, children, id }: FieldGroupProps) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="flex items-center gap-1.5 text-xs font-medium text-zinc-200 leading-tight">
+      <label htmlFor={id} className="flex items-center gap-1.5 text-xs font-medium text-gray-700 leading-tight">
         {label}
         {tooltip && <InfoTooltip content={tooltip} />}
       </label>
-      {sub && <p className="text-[10px] text-zinc-500 -mt-0.5">{sub}</p>}
+      {sub && <p className="text-[10px] text-gray-400 -mt-0.5">{sub}</p>}
       {children}
     </div>
   )

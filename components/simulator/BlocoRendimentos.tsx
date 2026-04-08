@@ -13,10 +13,10 @@ interface Props {
 
 export function BlocoRendimentos({ rendimentos, baseIRPFM, onChange }: Props) {
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+    <div className="bg-white border border-gray-200 rounded-xl p-5">
       <div className="flex items-center gap-2 mb-5">
-        <span className="inline-flex items-center justify-center w-5 h-5 bg-amber-500/15 text-amber-400 text-[10px] font-mono rounded">1</span>
-        <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">Rendimentos sujeitos ao IRPFM</span>
+        <span className="inline-flex items-center justify-center w-5 h-5 bg-amber-50 text-amber-600 text-[10px] font-mono rounded border border-amber-200">1</span>
+        <span className="text-[10px] font-mono tracking-widest text-gray-400 uppercase">Rendimentos sujeitos ao IRPFM</span>
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-3">
@@ -87,9 +87,9 @@ export function BlocoRendimentos({ rendimentos, baseIRPFM, onChange }: Props) {
         </FieldGroup>
       </div>
 
-      <div className="flex justify-between items-center px-3 py-2.5 bg-zinc-800/60 rounded-lg">
-        <span className="text-xs text-zinc-400">Base do IRPFM</span>
-        <span className="font-mono text-sm text-zinc-100">{formatBRL(baseIRPFM)}</span>
+      <div className="flex justify-between items-center px-3 py-2.5 bg-gray-100 rounded-lg">
+        <span className="text-xs text-gray-500">Base do IRPFM</span>
+        <span className="font-mono text-sm text-gray-900 font-medium">{formatBRL(baseIRPFM)}</span>
       </div>
     </div>
   )

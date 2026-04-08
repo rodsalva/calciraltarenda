@@ -28,14 +28,14 @@ function ResultLine({ label, value, variant = 'default' }: {
   variant?: 'default' | 'deduct' | 'total' | 'highlight'
 }) {
   const valClass = {
-    default: 'text-zinc-300',
-    deduct: 'text-emerald-400',
-    total: 'text-zinc-100 font-medium',
-    highlight: 'text-amber-400 font-medium text-sm',
+    default: 'text-gray-600',
+    deduct: 'text-emerald-600',
+    total: 'text-gray-900 font-medium',
+    highlight: 'text-amber-600 font-medium text-sm',
   }[variant]
-  const lblClass = variant === 'total' ? 'text-zinc-200 font-medium' : 'text-zinc-500'
+  const lblClass = variant === 'total' ? 'text-gray-800 font-medium' : 'text-gray-500'
   return (
-    <div className="flex justify-between items-baseline py-1.5 border-b border-zinc-800 last:border-0 gap-2">
+    <div className="flex justify-between items-baseline py-1.5 border-b border-gray-100 last:border-0 gap-2">
       <span className={`text-xs flex-1 ${lblClass}`}>{label}</span>
       <span className={`font-mono text-xs text-right whitespace-nowrap ${valClass}`}>{value}</span>
     </div>
@@ -45,13 +45,13 @@ function ResultLine({ label, value, variant = 'default' }: {
 function Accordion({ label, children }: { label: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="border border-zinc-800 rounded-xl overflow-hidden">
+    <div className="border border-gray-200 rounded-xl overflow-hidden">
       <button onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-2 px-4 py-3 text-left bg-zinc-900 hover:bg-zinc-800/80 transition-colors">
-        <span className={`text-[8px] transition-transform duration-150 ${open ? 'rotate-90' : ''}`}>▶</span>
-        <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">{label}</span>
+        className="w-full flex items-center gap-2 px-4 py-3 text-left bg-white hover:bg-gray-50 transition-colors">
+        <span className={`text-[8px] transition-transform duration-150 text-gray-400 ${open ? 'rotate-90' : ''}`}>▶</span>
+        <span className="text-[10px] font-mono tracking-widest text-gray-400 uppercase">{label}</span>
       </button>
-      {open && <div className="border-t border-zinc-800 bg-zinc-900/50">{children}</div>}
+      {open && <div className="border-t border-gray-100 bg-gray-50">{children}</div>}
     </div>
   )
 }
@@ -61,12 +61,12 @@ export function ResultadoPanel({ resultado, creditos }: Props) {
     totalCreditos, totalReductor, irpfmFinal, cargaEfetiva, aliqZona } = resultado
 
   const badge = aliqZona === 'isento'
-    ? <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-emerald-950/60 text-emerald-400 border border-emerald-800/40 rounded mb-4">Fora do IRPFM — base ≤ R$ 600.000</div>
+    ? <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded mb-4">Fora do IRPFM — base ≤ R$ 600.000</div>
     : aliqZona === 'progressiva'
-      ? <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-amber-950/60 text-amber-400 border border-amber-800/40 rounded mb-4">IRPFM progressivo — alíquota {formatPct(aliq)}</div>
-      : <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-red-950/60 text-red-400 border border-red-800/40 rounded mb-4">IRPFM máximo — alíquota 10%</div>
+      ? <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-amber-50 text-amber-700 border border-amber-200 rounded mb-4">IRPFM progressivo — alíquota {formatPct(aliq)}</div>
+      : <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-red-50 text-red-700 border border-red-200 rounded mb-4">IRPFM máximo — alíquota 10%</div>
 
-  const barColor = aliqZona === 'isento' ? '#34d399' : aliqZona === 'maxima' ? '#f87171' : '#fbbf24'
+  const barColor = aliqZona === 'isento' ? '#16a34a' : aliqZona === 'maxima' ? '#dc2626' : '#d97706'
 
   const formula = aliqZona === 'isento'
     ? `Base = ${formatBRL(base)} ≤ R$ 600.000\nAlíquota = 0% → IRPFM = R$ 0,00`
@@ -84,24 +84,24 @@ export function ResultadoPanel({ resultado, creditos }: Props) {
   return (
     <div className="sticky top-6 space-y-3">
       {/* Hero */}
-      <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+      <div className="bg-white border border-gray-200 rounded-xl p-5">
         {badge}
-        <div className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase mb-2">IRPFM adicional estimado</div>
-        <div className={`font-mono text-3xl font-medium leading-none ${irpfmFinal > 0 ? 'text-amber-400' : 'text-emerald-400'}`}>
+        <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-2">IRPFM adicional estimado</div>
+        <div className={`font-mono text-3xl font-medium leading-none ${irpfmFinal > 0 ? 'text-amber-600' : 'text-emerald-600'}`}>
           {formatBRL(irpfmFinal)}
         </div>
-        <div className="text-[11px] text-zinc-500 mt-2">
+        <div className="text-[11px] text-gray-400 mt-2">
           {base > 600_000
             ? `Créditos: ${formatBRL(totalCreditos + totalReductor)} · Renda total: ${formatBRL(rendaTotal)}`
             : 'Base abaixo de R$ 600.000 — IRPFM não se aplica'}
         </div>
         <div className="mt-4">
-          <div className="flex justify-between text-[10px] font-mono text-zinc-600 mb-1">
+          <div className="flex justify-between text-[10px] font-mono text-gray-400 mb-1">
             <span>0%</span>
             <span style={{ color: barColor }}>{formatPct(aliq)}</span>
             <span>10%</span>
           </div>
-          <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden border border-zinc-700">
+          <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div className="h-full rounded-full transition-all duration-500"
               style={{ width: `${Math.min(100, aliq * 1000)}%`, background: barColor }} />
           </div>
@@ -109,25 +109,25 @@ export function ResultadoPanel({ resultado, creditos }: Props) {
       </div>
 
       {/* Memória */}
-      <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
-        <div className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase mb-3">Memória de cálculo</div>
+      <div className="bg-white border border-gray-200 rounded-xl p-5">
+        <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-3">Memória de cálculo</div>
         <ResultLine label="Base do IRPFM" value={formatBRL(base)} variant="total" />
         <ResultLine label="Alíquota mínima" value={formatPct(aliq)} />
         <ResultLine label="IRPFM bruto" value={formatBRL(irpfmBruto)} />
-        <div className="my-1.5 border-t border-zinc-800" />
+        <div className="my-1.5 border-t border-gray-100" />
         <ResultLine label="(−) IRPF tabela progressiva" value={formatBRL(irpfTabela)} variant="deduct" />
         {creditos.cDiv > 0 && <ResultLine label="(−) IRRF dividendos 10%" value={formatBRL(creditos.cDiv)} variant="deduct" />}
         {creditos.cAplic > 0 && <ResultLine label="(−) IRRF aplicações/exclusiva" value={formatBRL(creditos.cAplic)} variant="deduct" />}
         {creditos.cOff > 0 && <ResultLine label="(−) IRRF offshore" value={formatBRL(creditos.cOff)} variant="deduct" />}
         {creditos.cOut > 0 && <ResultLine label="(−) Outros créditos" value={formatBRL(creditos.cOut)} variant="deduct" />}
         {totalReductor > 0 && <ResultLine label="(−) Redutor art. 16-B" value={formatBRL(totalReductor)} variant="deduct" />}
-        <div className="my-1.5 border-t border-zinc-800" />
+        <div className="my-1.5 border-t border-gray-100" />
         <ResultLine label="IRPFM a pagar" value={formatBRL(irpfmFinal)} variant="highlight" />
       </div>
 
       {/* Carga efetiva */}
-      <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
-        <div className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase mb-3">Carga tributária efetiva</div>
+      <div className="bg-white border border-gray-200 rounded-xl p-5">
+        <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-3">Carga tributária efetiva</div>
         <ResultLine label="Renda total (incl. isentos incentivados)" value={formatBRL(rendaTotal)} />
         <ResultLine label="IR pago (antes IRPFM)" value={formatBRL(totalCreditos)} />
         <ResultLine label="IRPFM adicional" value={formatBRL(irpfmFinal)} />
@@ -135,13 +135,13 @@ export function ResultadoPanel({ resultado, creditos }: Props) {
       </div>
 
       <Accordion label="Fórmula detalhada">
-        <pre className="px-4 py-3 font-mono text-[11px] text-zinc-400 leading-loose whitespace-pre-wrap">{formula}</pre>
+        <pre className="px-4 py-3 font-mono text-[11px] text-gray-600 leading-loose whitespace-pre-wrap">{formula}</pre>
       </Accordion>
 
       <Accordion label="Exclusões da base do IRPFM">
         <div className="px-4 py-3 space-y-0.5">
           {EXCLUSOES.map((e, i) => (
-            <div key={i} className="text-[11px] text-zinc-500 py-0.5">✗ {e}</div>
+            <div key={i} className="text-[11px] text-gray-500 py-0.5">✗ {e}</div>
           ))}
         </div>
       </Accordion>

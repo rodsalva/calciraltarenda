@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${sora.variable} ${ibmMono.variable}`}>
-      <body className="font-sans antialiased bg-zinc-950 text-zinc-100">
+      <body className="font-sans antialiased bg-gray-50 text-gray-900">
         {children}
       </body>
     </html>
