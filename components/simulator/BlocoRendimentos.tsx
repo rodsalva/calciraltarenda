@@ -21,14 +21,14 @@ export function BlocoRendimentos({ rendimentos, baseIRPFM, onChange }: Props) {
 
       <div className="grid grid-cols-2 gap-3 mb-3">
         <FieldGroup
-          label="Tributáveis — PJ"
+          label="Tributáveis: PJ"
           sub="Salário, pró-labore, honorários"
           tooltip="Rendimentos brutos totais recebidos de pessoa jurídica: salários, pró-labore, honorários. Informe o valor anual."
         >
           <CurrencyInput value={rendimentos.rPJ} onChange={v => onChange('rPJ', v)} />
         </FieldGroup>
         <FieldGroup
-          label="Tributáveis — PF / Exterior"
+          label="Tributáveis: PF / Exterior"
           sub="Aluguéis, autônomo, trabalho exterior"
           tooltip="Rendimentos brutos de aluguéis, trabalho não assalariado, serviços prestados ao exterior (não offshore)."
         >
@@ -45,7 +45,7 @@ export function BlocoRendimentos({ rendimentos, baseIRPFM, onChange }: Props) {
           <CurrencyInput value={rendimentos.rDiv} onChange={v => onChange('rDiv', v)} />
         </FieldGroup>
         <FieldGroup
-          label="Offshore — Lei 14.754/2023"
+          label="Offshore · Lei 14.754/2023"
           sub="Aplicações e controladas no exterior"
           tooltip="Rendimentos de aplicações financeiras no exterior e lucros de controladas no exterior, tributados nos termos da Lei 14.754/2023. Entram na base do IRPFM."
         >
@@ -62,7 +62,7 @@ export function BlocoRendimentos({ rendimentos, baseIRPFM, onChange }: Props) {
           <CurrencyInput value={rendimentos.rExcl} onChange={v => onChange('rExcl', v)} />
         </FieldGroup>
         <FieldGroup
-          label="Ganhos de capital — bolsa / balcão"
+          label="Ganhos de capital: bolsa / balcão"
           sub="Ganhos líquidos em operações de bolsa"
           tooltip="Ganhos líquidos em operações realizadas em bolsa de valores ou mercado de balcão organizado, sujeitos ao IR sobre ganho líquido. Entram na base do IRPFM."
         >

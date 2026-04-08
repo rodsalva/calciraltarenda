@@ -61,10 +61,10 @@ export function ResultadoPanel({ resultado, creditos }: Props) {
     totalCreditos, totalReductor, irpfmFinal, cargaEfetiva, aliqZona } = resultado
 
   const badge = aliqZona === 'isento'
-    ? <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded mb-4">Fora do IRPFM — base ≤ R$ 600.000</div>
+    ? <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded mb-4">Fora do IRPFM · base ≤ R$ 600.000</div>
     : aliqZona === 'progressiva'
-      ? <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-amber-50 text-amber-700 border border-amber-200 rounded mb-4">IRPFM progressivo — alíquota {formatPct(aliq)}</div>
-      : <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-red-50 text-red-700 border border-red-200 rounded mb-4">IRPFM máximo — alíquota 10%</div>
+      ? <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-amber-50 text-amber-700 border border-amber-200 rounded mb-4">IRPFM progressivo · alíquota {formatPct(aliq)}</div>
+      : <div className="inline-block font-mono text-[10px] px-2.5 py-1 bg-red-50 text-red-700 border border-red-200 rounded mb-4">IRPFM máximo · alíquota 10%</div>
 
   const barColor = aliqZona === 'isento' ? '#16a34a' : aliqZona === 'maxima' ? '#dc2626' : '#d97706'
 
@@ -93,7 +93,7 @@ export function ResultadoPanel({ resultado, creditos }: Props) {
         <div className="text-[11px] text-gray-400 mt-2">
           {base > 600_000
             ? `Créditos: ${formatBRL(totalCreditos + totalReductor)} · Renda total: ${formatBRL(rendaTotal)}`
-            : 'Base abaixo de R$ 600.000 — IRPFM não se aplica'}
+            : 'Base abaixo de R$ 600.000 · IRPFM não se aplica'}
         </div>
         <div className="mt-4">
           <div className="flex justify-between text-[10px] font-mono text-gray-400 mb-1">

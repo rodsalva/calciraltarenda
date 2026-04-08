@@ -17,7 +17,7 @@ export function BlocoCreditos({ creditos, totalCreditos, irpfTabelaAuto, onChang
     <div className="bg-white border border-gray-200 rounded-xl p-5">
       <div className="flex items-center gap-2 mb-5">
         <span className="inline-flex items-center justify-center w-5 h-5 bg-amber-50 text-amber-600 text-[10px] font-mono rounded border border-amber-200">2</span>
-        <span className="text-[10px] font-mono tracking-widest text-gray-400 uppercase">IR já pago — a compensar</span>
+        <span className="text-[10px] font-mono tracking-widest text-gray-400 uppercase">IR já pago a compensar</span>
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-3">
@@ -33,8 +33,8 @@ export function BlocoCreditos({ creditos, totalCreditos, irpfTabelaAuto, onChang
           />
         </FieldGroup>
         <FieldGroup
-          label="IRRF dividendos — 10%"
-          sub="Retido na fonte — art. 6º-A"
+          label="IRRF dividendos 10%"
+          sub="Retido na fonte · art. 6º-A"
           tooltip="IRRF de 10% retido na fonte sobre dividendos que ultrapassaram R$ 50.000/mês por fonte pagadora em 2026. Funciona como antecipação do IRPFM, a ser compensado na DIRPF 2027."
         >
           <CurrencyInput value={creditos.cDiv} onChange={v => onChange('cDiv', v)} />
@@ -50,7 +50,7 @@ export function BlocoCreditos({ creditos, totalCreditos, irpfTabelaAuto, onChang
           <CurrencyInput value={creditos.cAplic} onChange={v => onChange('cAplic', v)} />
         </FieldGroup>
         <FieldGroup
-          label="IRRF offshore — Lei 14.754/2023"
+          label="IRRF offshore · Lei 14.754/2023"
           sub="IRPF pago sobre rendimentos no exterior"
           tooltip="IRPF apurado e pago sobre rendimentos de aplicações financeiras no exterior e lucros de controladas, conforme Lei 14.754/2023."
         >

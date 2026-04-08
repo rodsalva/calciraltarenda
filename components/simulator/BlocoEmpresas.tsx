@@ -34,7 +34,7 @@ export function BlocoEmpresas({ empresas, totalReductor, onAdd, onRemove }: Prop
     <div className="bg-white border border-gray-200 rounded-xl p-5">
       <div className="flex items-center gap-2 mb-2">
         <span className="inline-flex items-center justify-center w-5 h-5 bg-amber-50 text-amber-600 text-[10px] font-mono rounded border border-amber-200">3</span>
-        <span className="text-[10px] font-mono tracking-widest text-gray-400 uppercase">Redutor antibitributação — art. 16-B</span>
+        <span className="text-[10px] font-mono tracking-widest text-gray-400 uppercase">Redutor antibitributação · art. 16-B</span>
       </div>
 
       <p className="text-xs text-sky-700 bg-sky-50 border border-sky-200 rounded-lg px-3 py-2 mb-4 leading-relaxed">
@@ -62,9 +62,9 @@ export function BlocoEmpresas({ empresas, totalReductor, onAdd, onRemove }: Prop
               onChange={e => setTeto(parseInt(e.target.value) as 34 | 40 | 45)}
               className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 focus:outline-none focus:border-amber-500 transition-colors"
             >
-              <option value={34}>Demais empresas — 34%</option>
-              <option value={40}>Seguradoras / Financeiras — 40%</option>
-              <option value={45}>Bancos — 45%</option>
+              <option value={34}>Demais empresas: 34%</option>
+              <option value={40}>Seguradoras / Financeiras: 40%</option>
+              <option value={45}>Bancos: 45%</option>
             </select>
           </FieldGroup>
         </div>

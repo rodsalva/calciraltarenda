@@ -11,10 +11,10 @@ export function BlocoMensal() {
   return (
     <div className="bg-white border border-gray-200 rounded-xl p-5">
       <div className="text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-2">
-        Simulador IRRF mensal — dividendos
+        Simulador IRRF mensal
       </div>
       <p className="text-xs text-gray-500 mb-4 leading-relaxed">
-        Dividendos &gt; R$ 50.000/mês por fonte pagadora → retenção de 10% na fonte (antecipação do IRPFM — art. 6º-A).
+        Dividendos &gt; R$ 50.000/mês por fonte pagadora → retenção de 10% na fonte (antecipação do IRPFM · art. 6º-A).
       </p>
       <div className="mb-3">
         <label className="text-xs text-gray-600 mb-1.5 block">Dividendos mensais (por fonte pagadora)</label>
